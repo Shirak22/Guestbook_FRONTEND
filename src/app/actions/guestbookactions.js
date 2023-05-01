@@ -15,7 +15,11 @@ export const updatePost = (post) => ({
     payload: post
 })
 
+export const loggedIn = (username) => ({
+    type: "LOGGED_IN",
+    payload:username
 
+})
 
 
 export const fillStore = (posts) => ({

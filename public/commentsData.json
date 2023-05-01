@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "username": "Shirak",
         "author": "Sami Clarck",
         "title": "Hello world",
         "region": "World Wide",
@@ -9,6 +10,7 @@
     },
     {
         "id": 2,
+        "username": "Shirak",
         "author": "Jana Fraoud",
         "title": "Best Wishes",
         "region": "Sweden/Stockholm",
@@ -17,6 +19,7 @@
     },
     {
         "id": 3,
+        "username": "Shirak",
         "author": "Farida Svennson",
         "title": "Love my life ",
         "region": "Linköping",

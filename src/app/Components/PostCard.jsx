@@ -1,11 +1,18 @@
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector} from "react-redux";
 import { removePost } from "../actions/guestbookactions";
+import {  useNavigate } from "react-router";
 
 function PostCard({ data }) {
+       const currentUser = useSelector(state => state.postReducer.currentUser )
+    const navigate = useNavigate(); 
        const dispatch = useDispatch();
 
     function deleteAction(){
         dispatch(removePost(data));
+    }
+    function editAction () {
+        console.log('Edit',data.id);
+        navigate('/Edit/' + data.id);
     }
 
     return (
@@ -14,8 +21,14 @@ function PostCard({ data }) {
             <h3>{data.author}</h3>
             <p>{data.content}</p>
             <h3>{data.postDate} </h3>
-            <button onClick={deleteAction}>remove</button>
-
+           
+            {
+                currentUser === data.author ? (<>
+                    <button onClick={deleteAction}>remove</button>
+                    <button onClick={editAction}>edit</button>
+                </>)
+                    : null
+            }
         </article>
 
     );

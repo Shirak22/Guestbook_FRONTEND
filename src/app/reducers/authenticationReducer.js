@@ -8,7 +8,6 @@ const authenticationReducer = (state = userDatabase, action ) => {
                 users: [action.payload]
             }
 
-
         default: 
             return state; 
     }

@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 
 function EditPost() {
     const params = useParams(); 
-    const state = useSelector(state => state); 
+    const state = useSelector(state => state.postReducer); 
 
     return ( 
         <>

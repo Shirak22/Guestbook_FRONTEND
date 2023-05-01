@@ -5,7 +5,7 @@ const guestbookReducer = (state = guestbookstore, action) => {
         case "SIGN_GUESTBOOK":
             // Array.some(callbackFN) it returns true or false after testing at least one element pass the test
             //in this case we make sure that the post will be in the store one time based on ID
-            let postID = state.posts[state.posts.length - 1].id + 1 ; 
+            let postID = state.posts.length > 0  ? state.posts[state.posts.length - 1].id + 1 : 1; 
                 return {
                     ...state,
                     posts: [...state.posts,{id:postID,...action.payload}]
@@ -33,6 +33,11 @@ const guestbookReducer = (state = guestbookstore, action) => {
                 posts: [...updatedPosts]
             }
 
+        case "LOGGED_IN" : 
+            return {
+                ...state,
+                currentUser: action.payload
+            }
 
         case "FILL_STORE":
             return {
