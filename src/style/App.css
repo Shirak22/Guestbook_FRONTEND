@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+ 
 }
 
 .logo {
@@ -39,4 +39,69 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+.post_card {
+  max-width:400px;
+}
+
+.post_card h2 {
+  background: rgb(219, 108, 108);
+  padding: 0 .5rem; 
+  margin: 0;
+  margin-top: 1rem;
+}
+.post_card h3 {
+  background: rgb(117, 54, 54);
+  padding: 0 .5rem;
+  margin: 0;
+  text-align: right;
+
+  font-size: 12px;
+}
+
+.post_card h3:first-of-type {
+  text-align: left;
+  
+}
+
+.post_card p {
+  background: rgb(67, 60, 60); 
+  padding: 0 1rem;
+  margin: 0;
+  min-height: 100px;
+  word-wrap: break-word;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin:1rem 0 0 0 ;
+}
+
+.formInput{
+  display: flex;
+  align-items:center; 
+  justify-content: flex-end;
+  gap:.5rem ;
+}
+.formInput input {
+  width: 100%;
+
+}
+.formInput textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 5rem;
+
+}
+.formInput label {
+  white-space: nowrap;
+  min-width:5rem;
+}
+
+.formInput__submit{
+  margin-left: auto;
+  margin-top: 1rem;
 }
