@@ -23,7 +23,7 @@ function LogIn() {
                     username: user.username,
                 }
                 dispatch(loggedIn(currentUserInfo));
-                setTimeout(()=> navigate('/'),1500)
+                setTimeout(()=> navigate('/'),1000)
 
                 
             }else {

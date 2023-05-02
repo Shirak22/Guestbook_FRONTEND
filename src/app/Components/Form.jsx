@@ -1,11 +1,24 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
 
 function InputForm({action,user}) {
-    const [author, setAuthor] = useState(!!user ? user.fullName : ''); 
-    const [region, setRegion] = useState( !!user ? user.region : ''); 
-    const [title, setTitle] = useState(!!user ? user.title : ''); 
-    const [content, setContent] = useState(!!user ? user.content : '');
+    const [author, setAuthor] = useState(''); 
+    const [region, setRegion] = useState(''); 
+    const [title, setTitle] = useState(''); 
+    const [content, setContent] = useState('');
+
+    
+
+    useEffect(() => {
+    if(user !== null && user.length > 0 ){
+            setAuthor(user[0].author)
+            setRegion(user[0].region)
+            setTitle(user[0].title)
+            setContent(user[0].content)
+            
+        }
+    },[user])
 
 
     function handleContentState(e){
@@ -15,7 +28,6 @@ function InputForm({action,user}) {
 
     useEffect(()=> {
         let date = new Date();
-     
 
         let newEntry = {
             author: author,
@@ -29,7 +41,6 @@ function InputForm({action,user}) {
             action(newEntry);
 
     },[content,title,region,author]); 
-
     return (
         <>
         

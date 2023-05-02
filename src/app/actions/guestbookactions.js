@@ -11,7 +11,7 @@ export const removePost = (post) => ({
 })
 
 export const updatePost = (post) => ({
-    type: "EDIT_POST", 
+    type: "UPDATE_POST", 
     payload: post
 })
 

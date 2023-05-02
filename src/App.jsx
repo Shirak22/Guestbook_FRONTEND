@@ -56,7 +56,7 @@ function App() {
     <Routes>
       <Route index element={<Home /> } /> 
       <Route path='/sign' element={<SignGuestBook /> } />
-      <Route path='/edit/:id' element={<EditPost /> } />
+      <Route path='/edit/:id/:title' element={<EditPost /> } />
       <Route path='/login' element={<LogIn /> } />
       <Route path='/logout' element={<Logout /> } />
       <Route path='*' element={<NotFound /> } /> 

@@ -18,8 +18,6 @@ function SignGuestBook() {
     }
     return (
         <main>
-            <h1>Sign GuestBook</h1>
-            <Link to="/">Home</Link>
             <InputForm action={setNewEntry} user={currentUser}/>
             <button onClick={handleSubmit} className="formInput__submit" >Submit</button>
            { posted ? <p style={{color:"lightgreen"}}>Your sign has been added successfully!</p> : ''}

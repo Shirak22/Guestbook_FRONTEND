@@ -104,3 +104,16 @@ form {
   margin-left: auto;
   margin-top: 1rem;
 }
+
+
+nav ul {
+  display: flex;
+  gap:1rem; 
+  list-style: none;
+  
+}
+
+
+nav ul li:last-child {
+  justify-self: flex-end;
+}

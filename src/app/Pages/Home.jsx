@@ -10,7 +10,6 @@ function Home() {
     return (
         <main>
           
-            <h1>View guestbook</h1>
             <Link to="/sign" >Sign Guestbook</Link>
             
             {

@@ -11,8 +11,7 @@ function PostCard({ data }) {
         dispatch(removePost(data));
     }
     function editAction () {
-        console.log('edit',data.id);
-        navigate('/edit/' + data.id);
+        navigate('/edit/' + data.id + '/' + data.title);
     }
 
 
