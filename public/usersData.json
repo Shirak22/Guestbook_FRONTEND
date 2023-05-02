@@ -1,12 +1,23 @@
 [
     {
+        "userID":"1",
         "role": "admin",
+        "fullName": "Shirak Soghomonian",
         "username": "Shirak",
         "password": "112233"
     },
     {
+        "userID":"2",
         "role": "user",
+        "fullName": "Maja Gedda",
         "username": "Maja",
         "password": "112233"
+    },
+    {
+        "userID":"3",
+        "role": "user",
+        "fullName": "Berat Ukiqi",
+        "username": "Berat2023",
+        "password": "Berat"
     }
 ]

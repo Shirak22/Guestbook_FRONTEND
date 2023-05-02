@@ -1,14 +1,16 @@
+import { useSelector } from "react-redux";
 import { guestbookstore } from "../GuestBookStore/guestbookstore";
-
 const guestbookReducer = (state = guestbookstore, action) => {
     switch (action.type) {
+        
         case "SIGN_GUESTBOOK":
             // Array.some(callbackFN) it returns true or false after testing at least one element pass the test
             //in this case we make sure that the post will be in the store one time based on ID
-            let postID = state.posts.length > 0  ? state.posts[state.posts.length - 1].id + 1 : 1; 
+            
+            const postID = state.posts.length > 0  ? state.posts[state.posts.length - 1].id + 1 : 1; 
                 return {
                     ...state,
-                    posts: [...state.posts,{id:postID,...action.payload}]
+                    posts: [...state.posts,{id:postID,username:state.currentUser === null ? 'Anonymous': state.currentUser.username , ...action.payload}]
                 }
            
 

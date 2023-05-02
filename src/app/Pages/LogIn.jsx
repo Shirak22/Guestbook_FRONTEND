@@ -10,17 +10,25 @@ function LogIn() {
 
     const [userName,setUserName] = useState(''); 
     const [password,setPassword] = useState('');
+    const [accessDenied,setAccessDenied] = useState(false); 
 
 
     function handleLogin(){
         usersData[0].forEach( user => {
             if(user.username === userName && user.password.toString() === password.toString()){
-                dispatch(loggedIn(user.username));
-                console.log('access success!'); 
+                let currentUserInfo = {
+                    userID: user.userID,
+                    fullName:user.fullName,
+                    role: user.role,
+                    username: user.username,
+                }
+                dispatch(loggedIn(currentUserInfo));
+                setTimeout(()=> navigate('/'),1500)
 
                 
             }else {
-                return
+                setAccessDenied(true);
+                
             }
         }); 
 
@@ -31,9 +39,12 @@ function LogIn() {
             {
                 currentUser === null ? (<>
                     <form >
+                       {
+                        accessDenied ? <p style={{color:'red'}}>Access Denied! ...... </p> : ''
+                       }
                        <section className="formInput">
                            <label htmlFor="userName">Username: </label>
-                           <input required id="userName" type="text" onChange={(e) => setUserName(e.target.value)} />
+                           <input required id="userName" type="text" onChange={(e) => {setUserName(e.target.value); setAccessDenied(false) }} />
                        </section>
                        <section className="formInput">
                            <label htmlFor="password">Password: </label>
@@ -44,7 +55,7 @@ function LogIn() {
                    </>) 
 
                 : (<>
-                
+                        
                         <h1>You are logged in </h1>
                         <button onClick={()=> navigate('/')}>Go to Home page</button>
 

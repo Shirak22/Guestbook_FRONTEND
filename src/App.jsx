@@ -11,6 +11,7 @@ import { fetchUsers } from './app/actions/authActions'
 import EditPost from './app/Pages/EditPost'
 import Header from './app/Components/Header'
 import LogIn from './app/Pages/LogIn'
+import Logout from './app/Pages/Logout'
 
 
 function App() {
@@ -55,8 +56,9 @@ function App() {
     <Routes>
       <Route index element={<Home /> } /> 
       <Route path='/sign' element={<SignGuestBook /> } />
-      <Route path='/Edit/:id' element={<EditPost /> } />
-      <Route path='/Login' element={<LogIn /> } />
+      <Route path='/edit/:id' element={<EditPost /> } />
+      <Route path='/login' element={<LogIn /> } />
+      <Route path='/logout' element={<Logout /> } />
       <Route path='*' element={<NotFound /> } /> 
     </Routes>
    </BrowserRouter>
