@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { guestbookstore } from "../GuestBookStore/guestbookstore";
 const guestbookReducer = (state = guestbookstore, action) => {
     switch (action.type) {

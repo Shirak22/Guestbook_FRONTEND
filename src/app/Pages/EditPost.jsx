@@ -22,6 +22,7 @@ function EditPost() {
                          <button onClick={navigate('/login')}>Login</button>
                     </>)
                }
+               
             {signSuccess ? <p style={{color: 'lightgreen'}}> updated successfuly! </p> : ''}
                
           </main>
