@@ -22,7 +22,7 @@ function PostCard({ data }) {
     return (
         <article  className="post_card">
             <h2>{data.title}</h2>
-            <h3>{data.author}</h3>
+            <h3>{data.author} <span style={{float:'right'}}>{data.region}</span></h3>
             {contentProcessor(data.content)}
             <h3>{data.postDate} </h3>
            

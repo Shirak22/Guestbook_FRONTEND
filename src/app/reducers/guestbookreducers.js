@@ -23,17 +23,16 @@ const guestbookReducer = (state = guestbookstore, action) => {
 
         case "UPDATE_POST":
             //mapping state posts then update the post that matches with currentPost that will be updated. 
-            let updatedPost = action.payload;
+    
             let updatedPosts = state.posts.map(post => {
-                // if(post.id == updatedPost.id){
-                //     return {
-                //         id:post.id, 
-                //         username:post.username,
-                //         ...updatedPost
-                //     }
-                   console.log(post.username, updatedPost.username);
+                if(post.id.toString() === action.payload.id.toString()){
+                    return {
+                        id:post.id, 
+                        username:post.username,
+                        ...action.payload
+                    }
 
-                // }
+                }
 
                 return post; 
             })

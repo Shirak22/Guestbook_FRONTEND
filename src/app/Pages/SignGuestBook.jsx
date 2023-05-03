@@ -1,30 +1,20 @@
-import { useState } from 'react';
-import InputForm from '../Components/Form'
-import {Link, useNavigate } from    'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
-import { signGuestbook } from "../actions/guestbookactions";
+
+import { useState } from "react";
+import InputForm from "../Components/InputForm";
+
 
 function SignGuestBook() {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const currentUser = useSelector((state) => state.postReducer.currentUser)
-    const [newEntry,setNewEntry] = useState({}); 
-    const [posted,setPosted] = useState(false); 
+    const [signSuccess,setSignSuccess ] = useState(false);
 
-    function handleSubmit(){
-        dispatch(signGuestbook(newEntry));
-        setPosted(true);
-        setTimeout(() => navigate('/'), 1000 ); 
-    }
+
     return (
         <main>
-            <InputForm action={setNewEntry} user={currentUser}/>
-            <button onClick={handleSubmit} className="formInput__submit" >Submit</button>
-           { posted ? <p style={{color:"lightgreen"}}>Your sign has been added successfully!</p> : ''}
-            
+            <p>New Entry</p>
+            <InputForm setMission={setSignSuccess} isNewEntry={true}/>
+            {signSuccess ? <p style={{color: 'lightgreen'}}> added successfuly! </p> : ''}
         </main>
 
-    );
+    )
 }
 
 export default SignGuestBook;

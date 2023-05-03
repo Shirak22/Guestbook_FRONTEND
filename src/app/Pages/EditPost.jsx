@@ -1,47 +1,31 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router";
-import InputForm from "../Components/Form";
-import { updatePost } from "../actions/guestbookactions";
+import { useSelector } from "react-redux";
+import InputForm from "../Components/InputForm";
+import { useNavigate } from "react-router";
+import { useState } from "react";
 
 
 
 function EditPost() {
-    const params = useParams();
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const state = useSelector(state => state.postReducer);
-    const [preEntry,setpreEntry] = useState({})
-    const [editedEntry,setEditedEntry] = useState({})
-    const [posted, setPosted] = useState(false);
-
-    function filterInfo(){
-      let currentPost = state.posts.filter(post =>  post.id.toString() === params.id);
-      return currentPost; 
-    }
-
-    function handleSubmit(){
-      setPosted(true);
-      dispatch(updatePost(editedEntry));
-      setTimeout(() => navigate('/'), 1000 ); 
-  }
-
-     useEffect(()=> {
-        setpreEntry(filterInfo()); 
-     },[state])
-
+     const currentUser = useSelector(state => state.postReducer.currentUser);
+     const [signSuccess,setSignSuccess ] = useState(false);
+     const navigate = useNavigate();
 
      return ( 
-        <main>
-          <h1>Edit Post</h1>
-          <InputForm action={setEditedEntry}  user={preEntry}/>
-          <button onClick={handleSubmit} className="formInput__submit" >Submit</button>
-           { posted ? <p style={{color:"lightgreen"}}>Your sign has been updated successfully!</p> : ''}
-        </main>
-
-        
-
-     );
+          <main>
+               {
+                    !!currentUser ? 
+                    (<>
+                         <p>Edit Entry</p>
+                         <InputForm setMission={setSignSuccess} isNewEntry={false}/>
+                    </>) : (<>
+                         <p>Please login to be able to edit! </p>
+                         <button onClick={navigate('/login')}>Login</button>
+                    </>)
+               }
+            {signSuccess ? <p style={{color: 'lightgreen'}}> updated successfuly! </p> : ''}
+               
+          </main>
+     )
 }
 
 export default EditPost;
