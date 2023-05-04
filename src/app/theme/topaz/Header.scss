@@ -48,6 +48,8 @@ nav{
     border-radius: 8px;
      p{
         margin:0;
+        font-size: $small;
+        color: $card_body_text_07;
     }
     .lastPosts__title{
         position: absolute;
@@ -68,6 +70,7 @@ nav{
             flex-wrap: nowrap;
             white-space: nowrap;
             padding:.2rem 0 ;
+
             animation: scroll 30s linear infinite ;
         }
     }

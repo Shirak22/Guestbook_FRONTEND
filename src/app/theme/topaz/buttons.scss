@@ -6,3 +6,17 @@ button{
     margin: .1rem;
     color: $card_header_text;
 }
+.Sign__button{
+    color: $card_header_text;
+    font-size: $medium;
+    font-weight: 400;
+    background: $primary_color;
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    margin: $big;
+    padding: $small;
+    border-radius:.4rem;
+    right: 0;
+    box-shadow: 5px 5px 5px #00000025;
+}

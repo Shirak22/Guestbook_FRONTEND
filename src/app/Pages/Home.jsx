@@ -11,7 +11,7 @@ function Home() {
           <section className="entries__container">
 
         
-            <Link to="/sign" >Sign Guestbook</Link>
+            <Link className="Sign__button" to="/sign" >Sign Guestbook</Link>
             {
                 posts && reversedPosts.map((post, index) =>
                 (
