@@ -1,0 +1,42 @@
+
+.login_badge{
+    margin:0 0 0 .2rem ;
+    padding:.1rem .2rem  ;
+    font-size: .5rem;
+    font-weight: 400;
+    background-color: $secondry_color;
+    border-radius: .5rem;
+}
+
+.date__badge{
+    background: $secondry_color;
+    position: absolute;
+    bottom: 0;
+    right:0;
+    transform: translate(-30%, 30%);
+    border-radius: 5px;
+    padding: .3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $card_header_text;
+    p{
+        padding: 0;
+        margin: 0;
+        line-height: 1;
+    }
+    .date_badge-day {
+        font-size: $regular;
+        font-weight: 800;
+
+    }
+    .date_badge-month {
+        font-size: $medium;
+        font-weight: 100;
+    }
+    .date_badge-year {
+        font-size: $medium;
+        font-weight: 100;
+    }
+}
