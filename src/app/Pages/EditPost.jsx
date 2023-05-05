@@ -23,7 +23,7 @@ function EditPost() {
                     </>)
                }
                
-            {signSuccess ? <p style={{color: 'lightgreen'}}> updated successfuly! </p> : ''}
+            {signSuccess ? <p className="warning__success"> updated successfuly! </p> : ''}
                
           </main>
      )

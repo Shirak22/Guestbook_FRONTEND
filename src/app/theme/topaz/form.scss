@@ -1,0 +1,24 @@
+
+.formInput{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $small;
+
+    input{
+        padding:.2rem;
+        &:disabled {
+            background-color: $card_body_text_05;
+            color: $card_body_text_07;         
+        }
+    }
+
+    textarea {
+        min-height: 10rem;
+        resize: vertical;
+    }
+}
+
+.warning__success{
+   color: $primary_color;
+   font-weight: 600;
+}

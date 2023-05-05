@@ -28,6 +28,8 @@ function Header() {
                         <p>Majdsafhjkl jkhsjdfjkh sjkdd </p>
                         <p>Majdsafhjkl jkhsjdfjkh sjkdd </p>
                         <p>Majdsafhjkl jkhsjdfjkh sjkdd </p>
+                        <p>Majdsafhjkl jkhsjdfjkh sjkdd </p>
+                        <p>Majdsafhjkl jkhsjdfjkh sjkdd </p>
                     </section>
                 
                 </section>

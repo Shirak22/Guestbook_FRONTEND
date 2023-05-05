@@ -11,7 +11,7 @@ function SignGuestBook() {
         <main>
             <p>New Entry</p>
             <InputForm setMission={setSignSuccess} isNewEntry={true}/>
-            {signSuccess ? <p style={{color: 'lightgreen'}}> added successfuly! </p> : ''}
+            {signSuccess ? <p className="warning__success"> added successfuly! </p> : ''}
         </main>
 
     )
