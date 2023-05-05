@@ -8,6 +8,16 @@ function Header() {
     const currentUser = useSelector(state => state.postReducer.currentUser )
     const posts = useSelector(state => state.postReducer.posts )
     
+
+    //returns last 5 elements in array: 
+    const lastEntries = posts && posts.slice(Math.max(posts.length - 5, 1)); 
+
+    //limiting the renderd text
+    function limitText(text,limit){
+        if(text.length > limit ){
+            return text.slice(0,limit).toString(); 
+        }
+    }
     return (
        
         
@@ -22,14 +32,16 @@ function Header() {
                 <div style={currentUser === null ? {backgroundColor:'#BC2525'} : {backgroundColor: '#25BCB6'}} className='login_indicator'></div>
             </section>
             <section className='nav_lastPosts_scrolling'>
-                <p className='lastPosts__title'>last 10 entries</p>
+                <p className='lastPosts__title'>last 5 entries</p>
                 <section className='scrolling__posts'>
                     <section className='scrolling__posts-content'>
-                        <p>Majdsafhjkl jkhsjdfjkh sjkdd </p>
-                        <p>Majdsafhjkl jkhsjdfjkh sjkdd </p>
-                        <p>Majdsafhjkl jkhsjdfjkh sjkdd </p>
-                        <p>Majdsafhjkl jkhsjdfjkh sjkdd </p>
-                        <p>Majdsafhjkl jkhsjdfjkh sjkdd </p>
+                        {
+                            lastEntries ? lastEntries.reverse().map((post,index) => (
+                                
+                                <p> {index + 1}-{limitText(post.content,50) } ... <span style={{color:'red'}}>{post.author}</span></p>
+                            )) : (<p>No entries...</p>)
+                        }
+                       
                     </section>
                 
                 </section>
