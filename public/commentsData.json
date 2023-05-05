@@ -2,7 +2,7 @@
     {
         "id": 1,
         "username": "Shirak",
-        "author": "Shirak Soghmonian",
+        "author": "Shirak Soghomonian",
         "region": "World Wide",
         "postDate": "2023-04-20",
         "content": "Hello Beatiful people!"
@@ -18,7 +18,7 @@
     {
         "id": 3,
         "username": "Maja",
-        "author": "Maja Gedda",
+        "author": "Maja Nilson",
 
         "region": "Linköping",
         "postDate": "2023-04-25",
@@ -27,7 +27,7 @@
     {
         "id": 4,
         "username": "Berat2023",
-        "author": "Berat Ukiqi",
+        "author": "Berat Wiliams",
         "region": "Sweden/Umeå",
         "postDate": "2023-04-29",
         "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
@@ -35,7 +35,7 @@
     {
         "id": 5,
         "username": "Berat2023",
-        "author": "Berat Ukiqi",
+        "author": "Berat Wiliams",
         "region": "Sweden/Umeå",
         "postDate": "2023-04-29",
         "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
@@ -43,7 +43,7 @@
     {
         "id": 6,
         "username": "Maja",
-        "author": "Maja Gedda",
+        "author": "Maja Nilson",
         "region": "Sweden/Umeå",
         "postDate": "2023-04-29",
         "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
@@ -51,8 +51,8 @@
     {
         "id": 7,
         "username": "Shirak",
-        "author": "Shirak Soghmonian",
-        "region": "Sweden/Norrköping",
+        "author": "Shirak Soghomonian",
+        "region": "Sweden/Linköping",
         "postDate": "2023-05-03",
         "content": "Please login to edit or update the Entries :\n As Admin:\n username: Shirak\n password:112233\n------------\n As user: \n username: Maja\n password:112233\n------------\n As user: \n username: Berat2023\n password:Berat"
     }
