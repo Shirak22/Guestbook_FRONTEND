@@ -21,6 +21,14 @@ function Home() {
                 )
             }
               </section>
+            <nav className="footer_nav">
+
+                <ul className="list">
+                    <li className="nav__login"><a>Guestbook in React Redux Sass © 2023 By Shirak Soghomonian </a></li>
+                    <li className="nav__login"><a target="_blank" href="https://github.com/Shirak22/guestbook">Github</a></li>
+                    <li className="nav__login"><a target="_blank" href="https://codepen.io/shirakserop">CodePen</a></li>
+                </ul>
+            </nav>
         </main>
            
     );

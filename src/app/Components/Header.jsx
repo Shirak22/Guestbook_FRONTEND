@@ -16,6 +16,8 @@ function Header() {
     function limitText(text,limit){
         if(text.length > limit ){
             return text.slice(0,limit).toString(); 
+        }else {
+            return text;
         }
     }
     return (
@@ -23,7 +25,7 @@ function Header() {
         
             <>  
             <nav>
-                <h1 className='Logo'>GuestBook</h1>
+               <Link to='/'><h1 className='Logo'>GuestBook</h1></Link> 
                 <p className='nav__login'>{currentUser === null ? <Link to="/login" >Login </Link> : <Link to="/logout" >{currentUser.fullName}{currentUser.role === 'admin' ? <span className='login_badge'>Admin</span> : ''}</Link>}</p>
             </nav>
             <section className='nav_guestbook__info'>
