@@ -10,7 +10,7 @@ function Header() {
     
 
     //returns last 5 elements in array: 
-    const lastEntries = posts && posts.slice(Math.max(posts.length - 5, 1)); 
+    const lastEntries = posts && posts.slice(Math.max(posts.length - 5, 0)); 
 
     //limiting the renderd text
     function limitText(text,limit){
@@ -37,11 +37,12 @@ function Header() {
                 <p className='lastPosts__title'>last 5 entries</p>
                 <section className='scrolling__posts'>
                     <section className='scrolling__posts-content'>
+
                         {
-                            lastEntries ? lastEntries.reverse().map((post,index) => (
+                            lastEntries.length !== 0 ? lastEntries.reverse().map((post,index) => 
                                 
                                 <p> {index + 1}-{limitText(post.content,50) } ... <span style={{color:'red'}}>{post.author}</span></p>
-                            )) : (<p>No entries...</p>)
+                            ) : <p>No entries... </p>
                         }
                        
                     </section>

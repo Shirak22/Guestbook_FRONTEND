@@ -25,6 +25,7 @@ nav{
     display: flex;
     align-items:center ;
     justify-content: flex-start;
+    margin-top: $regular;
     p {
         font-size: $small;
         margin: 0 $medium;
