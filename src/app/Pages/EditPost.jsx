@@ -15,7 +15,7 @@ function EditPost() {
                {
                     !!currentUser ? 
                     (<>
-                         <p>Edit Entry</p>
+                         <p className="newEditEntry_title">Edit Entry</p>
                          <InputForm setMission={setSignSuccess} isNewEntry={false}/>
                     </>) : (<>
                          <p>Please login to be able to edit! </p>

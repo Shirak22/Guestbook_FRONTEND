@@ -7,15 +7,29 @@
     background-color: $secondry_color;
     border-radius: .5rem;
 }
-
+.InfoBadge{
+    font-size: $small;
+    margin: 0 $medium;
+    color: $card_header_text;
+    background: $secondry_color;
+    padding:.2rem  .5rem;
+    border-radius: 5px;
+    span {
+        margin-right:.5rem;
+        background-color: $primary_color;
+        padding: .5rem;
+        border-radius: 5px;
+    }
+}
 .date__badge{
     background: $secondry_color;
+    box-shadow: 5px 5px 7px rgba($color: #000000, $alpha: .2);
     position: absolute;
     bottom: 0;
     right:0;
     transform: translate(-30%, 30%);
     border-radius: 5px;
-    padding: .3rem;
+    padding: .5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,11 +46,11 @@
 
     }
     .date_badge-month {
-        font-size: $medium;
+        font-size: $small;
         font-weight: 100;
     }
     .date_badge-year {
-        font-size: $medium;
+        font-size: $small;
         font-weight: 100;
     }
 }

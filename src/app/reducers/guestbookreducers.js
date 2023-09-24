@@ -14,7 +14,7 @@ const guestbookReducer = (state = guestbookstore, action) => {
            
 
         case "REMOVE_POST":
-            let postsAfterRemove = state.posts.filter((post) => post.id !== action.payload.id);
+            let postsAfterRemove = state.posts.filter((post) => post.id !== action.payload);
             return {
                 ...state,
                 posts: [...postsAfterRemove]

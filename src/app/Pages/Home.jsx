@@ -1,13 +1,25 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PostCard from "../Components/PostCard";
 import { Link } from 'react-router-dom';
+import { useEffect } from "react";
+import { fillStore } from "../actions/guestbookactions";
+import Header from "../Components/Header";
 
 function Home() {
     const posts = useSelector(state => state.postReducer.posts);
     const reversedPosts = [...posts].reverse();
+    const dispatch = useDispatch();
+     //fetch  form the Server and fill the Redux store
+  useEffect(() => {
+    const option = {
+      method:'GET',
+    }; 
+    fetch('http://localhost:3000/api',option)
+    .then(res => res.json())
+    .then(data => dispatch(fillStore(data))); 
+  },[]); 
 
     return (
-        <main>
           <section className="entries__container">
 
         
@@ -21,15 +33,6 @@ function Home() {
                 )
             }
               </section>
-            <nav className="footer_nav">
-
-                <ul className="list">
-                    <li className="nav__login"><a>Guestbook in React Redux Sass © 2023 By Shirak Soghomonian </a></li>
-                    <li className="nav__login"><a target="_blank" href="https://github.com/Shirak22/guestbook">Github</a></li>
-                    <li className="nav__login"><a target="_blank" href="https://codepen.io/shirakserop">CodePen</a></li>
-                </ul>
-            </nav>
-        </main>
            
     );
 }

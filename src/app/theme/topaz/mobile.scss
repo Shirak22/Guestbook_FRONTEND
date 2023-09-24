@@ -1,0 +1,60 @@
+@media only screen and (max-width:500px)  {
+    main{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+
+
+    }
+    body {
+        background-color: $background_primary;
+    }
+    .Sign__button{
+        color: transparent;
+        transition: 1s ;
+        position: fixed;
+        width: 4rem;
+        height: 4rem;
+        border-radius:50%;
+        bottom: 15px;
+        z-index: 99;
+        margin: $big;
+        padding: 0;
+        right: 0;
+        box-shadow: 3px 3px 12px rgba(0,0,0,.2);
+        &::after {
+            content:'+';
+        color: $card_header_text;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background: $sign_button;
+            height: 100%;
+            position: absolute;
+            font-size: 1.7rem;
+            border-radius:50%;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: $sign_button;
+
+    
+        }
+    }
+    
+}
+
+
+@media only screen and (min-width:500px) and (max-width:868px )  {
+    main{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}

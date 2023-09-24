@@ -11,9 +11,8 @@ function InputForm({isNewEntry, setMission}) {
     const currentUser = useSelector(state => state.postReducer.currentUser) || '';
     const state = useSelector(state => state.postReducer.posts) || [];
     const [currentPost,setCurrentPost] = useState({});   
-    const [author, setAuthor] = useState(currentUser.fullName); 
-    const [region, setRegion] = useState(''); 
     const [content, setContent] = useState('');
+    const [response, setResponse] = useState('');
 
 
     useEffect(()=> {
@@ -21,58 +20,11 @@ function InputForm({isNewEntry, setMission}) {
         if(!isNewEntry){
             let post = state && state.filter(post => params.id.toString() === post.id.toString())[0] || '';
             setCurrentPost(post);
-
-            //initial value 
-            setAuthor(post.author)
-            setRegion(post.region)
-            setContent(post.content)
+            setContent(post.comment)
         }
     },[]);
     
-    function handleChange(e) {
-        let value = e.target.value;
-        switch (e.target.id) {
-            case "author":
-                setAuthor(value);
-                break;
-            case "region":
-                setRegion(value);
-                break;
-            case "content":
-                setContent(value);
-                break;
-            default: 
-                return ;
-        }
-    }
-
-    //checks the currentUser and render the defaultvalue of NameInput 
-    function renderDefaultNameValue(){
-        
-        if(isNewEntry){
-            if(currentUser !== null){
-                return currentUser.fullName; 
-            }else {
-                return '' ; 
-            }
-        }else { //Edit Entry
-            
-            return currentPost.author; 
-        }
-    }
-
-    //make sure that the name is disabled if the user is registerd 
-    function nameIsDisabled(){
-        if(isNewEntry && !!currentUser){
-            return true;
-        }else if(!isNewEntry){
-            if(currentUser.username === currentPost.username ){
-                return true; 
-            }
-            return false; 
-        }
-    }
-
+   
     // navigate on timer 
     function navigateOnTimer(path,time){
         setTimeout(()=>{
@@ -81,25 +33,60 @@ function InputForm({isNewEntry, setMission}) {
     }
 
 
-    function handleClick(){
-        let date = new Date();
-        let name = isNewEntry && author !== '' ? currentPost.author || author :  author;
-        let newEntry = {
-            author:name ,
-            region:region,
-            postDate: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
-            content:content
-        }
+    function handleClick(e){
+       e.preventDefault();
+       
 
         if(isNewEntry){
-            dispatch(signGuestbook(newEntry));
-            setMission(true); //to trigger indicator to sign guestbook page  
-            navigateOnTimer('/',1)
+            let userInput = {
+                comment:content,
+            }
+            const option = {
+                method: 'POST',
+                headers:{
+                    'Content-type': 'application/json',
+                },
+                credentials:'include',
+                body : JSON.stringify(userInput)
+            }
+           
+            fetch('http://localhost:3000/api/sign',option)
+            .then(res => res.json())
+            .then(data => {
+                if(data.success){
+                    setResponse(data.message);
+                    setMission(true); //to trigger indicator to sign guestbook page  
+                     navigateOnTimer('/',1)
+                }else {
+                    setMission(false); 
+                    setResponse(data.validInput);
+                }
+            });
+
+            
         }else if(!isNewEntry){
-            //update the post with new values without the id. 
-            dispatch(updatePost({id:currentPost.id, ...newEntry}));
-            setMission(true); //to trigger indicator to editpost page  
-            navigateOnTimer('/',1)
+            let comment = {
+               comment: content
+            }
+            const option = {
+                method: 'PUT',
+                headers:{
+                    'Content-type': 'application/json',
+                },
+                credentials:'include',
+                body : JSON.stringify(comment)
+            }
+            fetch('http://localhost:3000/api/update/' + currentPost.id,option).then(res => res.json())
+            .then(data => {
+                if(data.success){
+                    setResponse(data.message);
+                    setMission(true); //to trigger indicator to sign guestbook page  
+                    navigateOnTimer('/',1)
+                }else {
+                    setMission(false); 
+                    setResponse(data.message);
+                }
+            });
         }
         
         
@@ -107,23 +94,16 @@ function InputForm({isNewEntry, setMission}) {
     return (
         <>
 
-            <form >
+            <form className="signForm">
                 <section className="formInput">
-                    <label htmlFor="author">Your name: </label>
-                    <input disabled={nameIsDisabled()} defaultValue={renderDefaultNameValue()} required id="author" type="text" onChange={handleChange} />
+                    <label htmlFor="content" >Your Comment: </label>
+                    <textarea defaultValue={currentPost.comment} required id="content" type="text" onChange={(e)=> setContent(e.target.value)} />
+                    <p className="InfoBadge">length:20-1200 characters</p>
                 </section>
-                <section className="formInput">
-                    <label htmlFor="region">Where are you from ?  </label>
-                    <input defaultValue={currentPost.region} required id="region" type="text" onChange={handleChange} />
-                </section>
-                <section className="formInput">
-                    <label htmlFor="content">Content: </label>
-                    <textarea defaultValue={currentPost.content} required id="content" type="text" onChange={handleChange} />
-                </section>
-
+                <button onClick={handleClick}>{isNewEntry ? 'Submit' : 'Apply changes'}</button>
+                <p className="response_">{response}</p>
+            
             </form>
-
-            <button onClick={handleClick}>{isNewEntry ? 'Submit' : 'Apply changes'}</button>
 
         </>
 

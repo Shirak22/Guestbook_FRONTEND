@@ -1,32 +1,35 @@
 .entries__container{
     display: flex;
+    padding: 2rem;
     flex-direction: column;
-    gap: $big;
+    gap: $gap;
+   
 
     .post_card{
         position: relative;
         background: $card_body_background;
         padding-bottom: $big;
+        border-radius: 5px;
+    box-shadow: 5px 5px 7px rgba($color: #000000, $alpha: .2);
+
         .post_card__header{
             background:$primary_color;
             display: flex;
             align-items: center;
             margin: 0;
-            padding: $small;
+            padding:0 1rem;
             color: $card_header_text;
+            border-radius: 5px 5px 0 0 ;
 
             .post_card__header-author{
-                font-size: $regular;
+                font-size: $medium;
                 font-weight: 400;
                 position: relative;
                 margin: 0;
-                margin-top: $small;
                 span {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    transform: translate(0,-100%);
-                    font-size: $small;
+                    font-size: $big;
+                    padding: 0;
+                    margin: 0;
                 }
             
             }
@@ -37,9 +40,9 @@
                 margin: 0;
                 margin-left: auto;
                 align-self: flex-end;
-                padding: 0;
                 span {
-                    font-size: $small;
+                    font-size: $big;
+                    margin-right: 1rem;
                 }
             
             }
@@ -53,8 +56,7 @@
             padding: $small;
             p{
                 margin: 0;
-                font-size: $medium;
-                font-weight: 400;
+                font-size: $small;
                 color: $card_body_text_07;
             }
         }

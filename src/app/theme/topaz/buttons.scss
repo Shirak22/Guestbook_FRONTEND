@@ -1,22 +1,30 @@
 button{
-    background-color: $primary_color;
+    background-color: $sign_button;
     border: none;
     padding: .2rem $small;
     border-radius: .3rem;
     margin: .1rem;
     color: $card_header_text;
+    transition: .3s;
+    &:hover {
+        scale: 1.1;
+        cursor: pointer;
+        background-color: $primary_color;
+        transition: .3s;
+    }
 }
 .Sign__button{
+    transition: 1s ;
     color: $card_header_text;
     font-size: $medium;
     font-weight: 400;
-    background: $primary_color;
+    background: $sign_button;
     position: fixed;
-    bottom: 0;
+    bottom: 15px;
     z-index: 99;
     margin: $big;
     padding: $small;
     border-radius:.4rem;
     right: 0;
-    box-shadow: 5px 5px 5px #00000025;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.4);
 }

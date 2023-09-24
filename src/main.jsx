@@ -5,13 +5,12 @@ import './app/theme/topaz/index.scss'
 import { Provider } from 'react-redux'
 import {combineReducers, legacy_createStore as  createStore } from 'redux'
 import guestbookReducer from './app/reducers/guestbookreducers'
-import authenticationReducer from './app/reducers/authenticationReducer'
+import Footer from './app/Components/Footer'
 
 
 
 const allReducers = combineReducers({
   postReducer:guestbookReducer,
-  authReducer:authenticationReducer
 })
 
 const store = createStore(allReducers,
@@ -19,9 +18,11 @@ const store = createStore(allReducers,
   );
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider store={store} >
+  <Provider store={store} >
+    <>
       <App />
-    </Provider>
-  </React.StrictMode>,
-)
+      <Footer />
+    </>
+  </Provider>,
+
+);

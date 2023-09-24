@@ -4,16 +4,14 @@
 }
 
 body{
-    @include font;
-    background-color: $background_primary;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
     padding: 0;
     margin: 0;
+    background-color: #abbdbd;
+
 }
 
-#root {
-    padding: 0;
-    margin: 0;
-}
 
 h1 {
     font-size: $big;
@@ -26,8 +24,12 @@ p{
 }
 
 main{
-    padding: 0 $small;
-    min-width: 250px;
+    min-width: 300px;
+    padding: 0;
+    margin: 1rem auto;
+    max-width:867px;
+    background-color: $background_primary;
+    box-shadow: 5px 5px 20px rgba(0,0,0,.2);
 }
 
 a {
@@ -40,19 +42,44 @@ a {
     ul{
         list-style: none;
         display: flex;
-        font-size: 7px;
-        margin: 0;
-        margin-top: 10rem;
+        flex-direction: column;
         padding: 0;
+        margin-top: 2rem ;
         width: 100%;
         align-items: center;
         justify-content: center;
-        a{
-            color: $card_body_text;
-            &:hover{
-               color:$primary_color;
+
+        li{
+            display: block;
+            text-align: center;
+            width: 100%;
+            a{  
+                font-size: 12px;
+                font-weight: 100;
+                color: $card_body_text_07;
+                &:hover{
+                   color:$primary_color;
+                }
             }
         }
+       
     }
     
+}
+.footer_links {
+    a {
+        margin: 0 .5rem ;
+
+    }
+}
+
+.logout_view{
+    padding: 2rem;
+    color: $primary_color;
+
+    h1 {
+        color: $primary_color;
+        margin: 1rem 0;
+        
+    }
 }

@@ -1,24 +1,129 @@
-
-.formInput{
+.formInput {
     display: flex;
     flex-direction: column;
     margin-bottom: $small;
+    color: $card_body_text_07;
 
-    input{
-        padding:.2rem;
+    label {
+        font-size: $small;
+    }
+
+    input {
+        padding: .2rem;
+
         &:disabled {
             background-color: $card_body_text_05;
-            color: $card_body_text_07;         
+            color: $card_body_text_07;
         }
+    }
+
+    p {
+        margin: 0;
+        align-self: flex-end;
+
     }
 
     textarea {
         min-height: 10rem;
-        resize: vertical;
+        outline: none;
+        border: none;
+        font-family: sans-serif;
+        padding: 1rem;
+        resize: none;
+        overflow-y: scroll;
+        border: 1px solid $card_body_text_05;
+
+        background-color: $input_fields_color;
+
     }
 }
 
-.warning__success{
-   color: $primary_color;
-   font-weight: 600;
+.response_ {
+    font-size: $small;
+    color: $secondry_color;
+}
+
+.warning__success {
+    color: $primary_color;
+    font-weight: 600;
+    padding: 2rem;
+    text-align: right;
+}
+
+.signForm {
+    padding: 2rem;
+}
+
+.signForm .InfoBadge {
+    display: table;
+    font-size: $big;
+    margin-top: 1rem;
+}
+
+.formInput .InfoBadge {
+    font-size: $small;
+    display: table;
+    margin-bottom: 1rem;
+
+}
+
+.newEditEntry_title {
+    padding: 1rem;
+    color: $primary_color;
+    font-size: $big;
+    margin: 3rem 0 0 0;
+}
+
+.Login_title {
+    color: $card_header_text;
+    align-self: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .login_form_fields {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        margin: 3rem;
+        min-width:300px;
+
+        border-radius: 12px;
+
+        gap: 1rem;
+        background-color: $secondry_color;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        font-size: $small;
+        color: $card_body_text_07;
+
+        label {
+            color: $card_header_text;
+        }
+
+        input {
+            padding: .5rem 1rem;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid $card_body_text_05;
+            background: $input_fields_color;
+        }
+    }
+
+}
+
+.register_response {
+    color: $card_body_text_07;
+    font-size: $small;
+    max-width: 300px;
+
 }

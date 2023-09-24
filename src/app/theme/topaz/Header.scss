@@ -10,14 +10,25 @@ nav{
         margin: $medium;
     }
 
-    .nav__login{
-        font-size: $small;
-        a {
-            color: $card_body_background;
+        .nav__login {
+            font-size: $small;
+    
+            a {
+                color: $card_body_background;
+                margin: 0 .5rem;
+                transition: .4s;
+    
+                &:hover {
+                    transition: .4s;
+    
+                    color: $secondry_color;
+                    text-decoration: overline;
+                }
+            }
+    
+            margin:$small;
+            align-self: flex-end;
         }
-        margin:$small;
-        align-self: flex-end;
-    }
     
 }
 
@@ -26,10 +37,7 @@ nav{
     align-items:center ;
     justify-content: flex-start;
     margin-top: $regular;
-    p {
-        font-size: $small;
-        margin: 0 $medium;
-    }
+    
     .login_indicator{
         width: $small;
         height: $small;
@@ -40,12 +48,10 @@ nav{
     }
 }
 
-
-
 .nav_lastPosts_scrolling{
     position: relative;
     border: 2px solid $card_body_background;
-    margin: $medium;
+    margin: 2rem 2rem;
     border-radius: 8px;
      p{
         margin:0;
@@ -63,6 +69,11 @@ nav{
 
     }
 
+    .scroll_author {
+        color:$secondry_color;
+        font-size: $small;
+        font-weight: 600;
+    }
     .scrolling__posts{  
         overflow: hidden;
 
@@ -72,7 +83,7 @@ nav{
             flex-wrap: nowrap;
             white-space: nowrap;
             padding:.2rem 0 ;
-           animation: scroll 25s linear infinite ;
+           animation: scroll 30s linear infinite ;
         }
     }
    
