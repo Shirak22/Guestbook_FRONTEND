@@ -101,7 +101,7 @@ function InputForm({isNewEntry, setMission}) {
                     <p className="InfoBadge">length:20-1200 characters</p>
                 </section>
                 <button onClick={handleClick}>{isNewEntry ? 'Submit' : 'Apply changes'}</button>
-                <p className="response_">{response}</p>
+                <p className="register_response">{response}</p>
             
             </form>
 

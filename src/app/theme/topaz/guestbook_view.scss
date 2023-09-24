@@ -27,13 +27,20 @@
                 position: relative;
                 margin: 0;
                 span {
-                    font-size: $big;
+                    font-size: $small;
                     padding: 0;
                     margin: 0;
                 }
             
             }
-
+            .post_card__postTime{
+                font-size:10px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin: 1rem;
+                transform: translate(0,-100%);
+            }
             .post_card__header-region{
                 font-size: $small;
                 font-weight: 100;

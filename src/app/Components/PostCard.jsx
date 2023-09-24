@@ -4,8 +4,9 @@ import {  useNavigate } from "react-router";
 
 function PostCard({ data }) {
        const currentUser = useSelector(state => state.postReducer.currentUser )
-    const navigate = useNavigate(); 
+       const navigate = useNavigate(); 
        const dispatch = useDispatch();
+       let dateParse = new Date(data.createdAt);
        
 
     async    function deleteAction (){
@@ -35,8 +36,7 @@ function PostCard({ data }) {
             )
     }
 
-    function DateBadge({data}) {
-        let dateParse = new Date(data);
+    function DateBadge() {
         let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
         return (
             <div className="date__badge">
@@ -47,15 +47,23 @@ function PostCard({ data }) {
         );
     }
 
+    function getPostTime(){
+        const hour = dateParse.getHours() < 10 ?  `0${dateParse.getHours()}` : dateParse.getHours() ; 
+        const minutes = dateParse.getMinutes() < 10 ?  `0${dateParse.getMinutes()}` : dateParse.getMinutes() ; 
+        const seconds = dateParse.getSeconds() < 10 ?  `0${dateParse.getSeconds()}` : dateParse.getSeconds() ; 
+
+        return `${hour}:${minutes}`
+    }   
    
     return (
         <article  className="post_card">
             <div className="post_card__header">
                 <p className="post_card__header-author"> {data.username} </p>
                 <p className="post_card__header-region"><span>🗺</span> {data.country} </p>
+                <p className="post_card__postTime">{getPostTime()}</p>
             </div>
             <ContentProcessor text={data.comment} />
-            <DateBadge data ={data.createdAt}/>
+            <DateBadge />
            
             {
                 currentUser && currentUser.userId === data.userId || currentUser && currentUser.role === 'admin' ? (<>
