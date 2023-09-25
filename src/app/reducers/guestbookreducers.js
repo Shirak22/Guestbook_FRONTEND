@@ -60,6 +60,11 @@ const guestbookReducer = (state = guestbookstore, action) => {
             return {
                 ...state,
                 posts: [...action.payload]
+        }
+        case "FILL_LAST_ENTRIES":
+            return {
+                ...state,
+                last_entries: [...action.payload],
             }
 
         default:

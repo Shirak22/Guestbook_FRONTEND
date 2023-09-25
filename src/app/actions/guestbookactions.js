@@ -36,3 +36,8 @@ export const fillStore = (posts) => ({
     type: "FILL_STORE",
     payload:posts
 })
+
+export const fillLastEntries = (entriesCount) => ({
+    type: "FILL_LAST_ENTRIES",                          
+    payload: entriesCount
+})

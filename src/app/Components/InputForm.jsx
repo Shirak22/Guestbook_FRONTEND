@@ -20,11 +20,15 @@ function InputForm({isNewEntry, setMission}) {
         if(!isNewEntry){
             let post = state && state.filter(post => params.id.toString() === post.id.toString())[0] || '';
             setCurrentPost(post);
-            setContent(post.comment)
+            setContent(post.comment);
         }
     },[]);
     
-   
+    function handleCancel(e) {
+        e.preventDefault();
+        navigate('/');
+    }
+
     // navigate on timer 
     function navigateOnTimer(path,time){
         setTimeout(()=>{
@@ -56,7 +60,7 @@ function InputForm({isNewEntry, setMission}) {
                 if(data.success){
                     setResponse(data.message);
                     setMission(true); //to trigger indicator to sign guestbook page  
-                     navigateOnTimer('/',1)
+                     navigateOnTimer('/',1);
                 }else {
                     setMission(false); 
                     setResponse(data.validInput);
@@ -97,10 +101,11 @@ function InputForm({isNewEntry, setMission}) {
             <form className="signForm">
                 <section className="formInput">
                     <label htmlFor="content" >Your Comment: </label>
-                    <textarea defaultValue={currentPost.comment} required id="content" type="text" onChange={(e)=> setContent(e.target.value)} />
+                    <textarea dir="auto" defaultValue={currentPost.comment} required id="content" type="text" onChange={(e)=> setContent(e.target.value)} />
                     <p className="InfoBadge">length:20-1200 characters</p>
                 </section>
                 <button onClick={handleClick}>{isNewEntry ? 'Submit' : 'Apply changes'}</button>
+                <button onClick={handleCancel}>Cancel</button>
                 <p className="register_response">{response}</p>
             
             </form>

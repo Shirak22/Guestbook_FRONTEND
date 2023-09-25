@@ -2,6 +2,7 @@
     currentUser:null,
     total_entries:0,
     total_pages:0,
+    last_entries:[],
     posts:[],
 }                    
 

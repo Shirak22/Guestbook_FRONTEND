@@ -1,19 +1,23 @@
 
-import {  useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import {  SITE_INFO } from '../config';
+import {  useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import {  SERVER_HOST, SITE_INFO } from '../config';
+import { useEffect } from 'react';
+import { fillLastEntries, totalEntries } from '../actions/guestbookactions';
 
 
 
 function Header() {
     const currentUser = useSelector(state => state.postReducer.currentUser ); 
-    const posts = useSelector(state => state.postReducer.posts );
+    const last_entries = useSelector(state => state.postReducer.last_entries );
     const totalEntries_value = useSelector(state => state.postReducer.total_entries );
     const totalPages_value = useSelector(state => state.postReducer.total_pages );
-    
 
-    //returns last 5 elements in array: 
-    const lastEntries = posts && posts.slice(Math.max(posts.length - 5, 0)); 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+
+
 
    // limiting the renderd text
     function limitText(text,limit){
@@ -23,6 +27,24 @@ function Header() {
             return text;
         }
     }
+
+    const fetchData = ()=> {
+        const option = {
+            method: 'GET',
+        };
+        fetch(`${SERVER_HOST}/api?limit=${5}&page=${(0)}`, option)
+            .then(res => res.json())
+            .then(data => {
+                dispatch(totalEntries(data.total_entries));
+                dispatch(fillLastEntries(data.entries));
+            });
+    }
+
+    useEffect(()=> {
+        fetchData();
+        navigate('/');
+    },[]);
+
     return (
        
         
@@ -42,7 +64,7 @@ function Header() {
                     <section className='scrolling__posts-content'>
 
                         {
-                            lastEntries.length !== 0 ? lastEntries.reverse().map((post,index) => 
+                            last_entries.length !== 0 ? last_entries.map((post,index) => 
                                 
                                 <p key={index}> 📝 {limitText(post.comment,40) }.. ◄ <span className='scroll_author'>{post.username}</span></p>
                             ) : <p>No entries... </p>

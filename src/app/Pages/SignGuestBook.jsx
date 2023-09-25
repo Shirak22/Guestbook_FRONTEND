@@ -24,6 +24,7 @@ function SignGuestBook() {
         .then(res => res.json()).then(data => {
             if(data.success){
                 dispatch(loggedIn(data.user));
+
             }else {
                 dispatch(loggedIn(null));
                 navigate('/login');
