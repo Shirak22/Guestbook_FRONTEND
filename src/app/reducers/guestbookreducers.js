@@ -39,7 +39,17 @@ const guestbookReducer = (state = guestbookstore, action) => {
                 ...state,
                 posts: [...updatedPosts]
             } 
+        case "TOTAL_ENTRIES" : 
+            return {
+                ...state,
+                total_entries:action.payload
+            }
             
+        case "TOTAL_PAGES" : 
+        return {
+            ...state,
+            total_pages:action.payload
+        } 
         case "LOGGED_IN" : 
             return {
                 ...state,

@@ -12,7 +12,7 @@ nav{
 
         .nav__login {
             font-size: $small;
-    
+            font-weight: 300;
             a {
                 color: $card_body_background;
                 margin: 0 .5rem;
@@ -50,7 +50,7 @@ nav{
 
 .nav_lastPosts_scrolling{
     position: relative;
-    border: 2px solid $card_body_background;
+    border: 1px solid $card_body_text_05;
     margin: 2rem 2rem;
     border-radius: 8px;
      p{

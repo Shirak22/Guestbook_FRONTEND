@@ -1,13 +1,11 @@
 @media only screen and (max-width:500px)  {
+  
     main{
         width: 100%;
         padding: 0;
         margin: 0;
 
 
-    }
-    body {
-        background-color: $background_primary;
     }
     .Sign__button{
         color: transparent;
@@ -47,7 +45,66 @@
     
         }
     }
+
+    .entries__container{
+        padding: .4rem;
+        padding-bottom: 5rem;
+        gap: 1.5rem;
+        }
+
+    .date__badge{
+       flex-direction: row;
+       gap: .2rem;
+       margin: 0 -15px;
+       padding: .1rem .2rem;
+       .date_badge-month,
+       .date_badge-year {
+        font-weight: 400;
+       }
+       .date_badge-day{
+        font-size: 14px;
+       }
+    }
+
+
+
+
+    .entries__container{
+        .post_card{
+            .post_card-content{
+                padding: $small;
+                font-weight: 300;
+                p{
+                    margin: 0;
+                    font-size: $small;
+                    color:$card_body_text;
+                }
+            }
+        }
     
+    }
+    
+    
+        .nav_lastPosts_scrolling {
+            position: relative;
+            border: 1px solid $card_body_text_05;
+            margin: 2rem .4rem;
+            border-radius: 8px;
+    
+            p {
+                margin: 0;
+                font-size: $small;
+                font-weight: 300;
+                color: $card_body_text;
+            }
+    
+        }
+    
+
+        .InfoBadge{
+            font-size: $small;
+            font-weight: 300;
+        }
 }
 
 
@@ -57,4 +114,5 @@
         padding: 0;
         margin: 0;
     }
+   
 }

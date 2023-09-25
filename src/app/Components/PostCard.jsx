@@ -1,6 +1,7 @@
 import { useDispatch,useSelector} from "react-redux";
 import { removePost } from "../actions/guestbookactions";
 import {  useNavigate } from "react-router";
+import { SERVER_HOST } from "../config";
 
 function PostCard({ data }) {
        const currentUser = useSelector(state => state.postReducer.currentUser )
@@ -18,7 +19,7 @@ function PostCard({ data }) {
              credentials:'include',
              body :''
          }
-         await fetch('http://localhost:3000/api/delete/' + data.id,option);
+         await fetch(`${SERVER_HOST}/api/delete/` + data.id,option);
         dispatch(removePost(data.id));
 
          
@@ -59,7 +60,7 @@ function PostCard({ data }) {
         <article  className="post_card">
             <div className="post_card__header">
                 <p className="post_card__header-author"> {data.username} </p>
-                <p className="post_card__header-region"><span>🗺</span> {data.country} </p>
+                <p className="post_card__header-region"><span></span> {data.country} </p>
                 <p className="post_card__postTime">{getPostTime()}</p>
             </div>
             <ContentProcessor text={data.comment} />

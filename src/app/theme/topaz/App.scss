@@ -22,6 +22,7 @@ body{
     padding: 0;
     margin: 0;
     background-color: #abbdbd;
+    scroll-behavior: smooth;
   
 
 }
@@ -95,5 +96,32 @@ a {
         color: $primary_color;
         margin: 1rem 0;
         
+    }
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0,50%);
+    .pagination_page_number{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    button {
+        font-size: $small;
+        padding: .1rem .2rem;
+        margin: .05rem;
+        border-radius: 5px;
+        &:hover {
+            scale: 1;
+            padding: 0 1rem;
+        }
+    }
+
+    .active {
+        background: $secondry_color;
     }
 }

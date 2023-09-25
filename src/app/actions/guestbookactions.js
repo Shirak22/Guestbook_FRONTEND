@@ -21,6 +21,16 @@ export const loggedIn = (username) => ({
 
 })
 
+export const totalEntries = (entriesCount) => ({
+    type: "TOTAL_ENTRIES",                          
+    payload: entriesCount
+})
+
+export const totalPages = (pagesCount) => ({
+    type: "TOTAL_PAGES",                          
+    payload: pagesCount
+})
+
 
 export const fillStore = (posts) => ({
     type: "FILL_STORE",

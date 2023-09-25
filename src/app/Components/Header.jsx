@@ -1,11 +1,15 @@
 
-import { useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import {  SITE_INFO } from '../config';
+
 
 
 function Header() {
     const currentUser = useSelector(state => state.postReducer.currentUser ); 
     const posts = useSelector(state => state.postReducer.posts );
+    const totalEntries_value = useSelector(state => state.postReducer.total_entries );
+    const totalPages_value = useSelector(state => state.postReducer.total_pages );
     
 
     //returns last 5 elements in array: 
@@ -24,12 +28,12 @@ function Header() {
         
             <>  
             <nav>
-               <Link to='/'><h1 className='Logo'>GuestBook</h1></Link> 
+               <Link to='/'><h1 className='Logo'>{SITE_INFO.site_title}</h1></Link> 
                 <p className='nav__login'>{currentUser === null ? (<><Link to="/register" >Register </Link> <Link to="/login" >Login </Link> </>)  : <Link to="/logout" >{currentUser.username + (' (Logout)')}{currentUser.role === 'admin' ? <span className='login_badge'>Admin</span> : ''}</Link>}</p>
             </nav>
             <section className='nav_guestbook__info '>
-                <p className='InfoBadge'><span>{posts.length}</span> Entries </p>
-                <p className='InfoBadge'><span>{posts.length}</span>Pages</p>
+                <p className='InfoBadge'><span>{totalEntries_value}</span> Entries </p>
+                <p className='InfoBadge'><span>{totalPages_value}</span>Pages</p>
                 <div style={currentUser === null ? {backgroundColor:'#BC2525'} : {backgroundColor: '#25BCB6'}} className='login_indicator'></div>
             </section>
             <section className='nav_lastPosts_scrolling'>

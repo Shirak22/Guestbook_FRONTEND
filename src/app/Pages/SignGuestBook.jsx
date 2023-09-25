@@ -4,6 +4,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import { useEffect,useState } from 'react';
 import { loggedIn } from "../actions/guestbookactions";
 import { Navigate, useNavigate } from "react-router";
+import { SERVER_HOST } from "../config";
 
 function SignGuestBook() {
     const [signSuccess,setSignSuccess ] = useState(false);
@@ -19,7 +20,7 @@ function SignGuestBook() {
             },
             credentials:'include',
           }; 
-        fetch('http://localhost:3000/api/auth/checkuser',option)
+        fetch(`${SERVER_HOST}/api/auth/checkuser`,option)
         .then(res => res.json()).then(data => {
             if(data.success){
                 dispatch(loggedIn(data.user));

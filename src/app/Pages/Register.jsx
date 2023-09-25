@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { loggedIn } from "../actions/guestbookactions";
+import { SERVER_HOST } from "../config";
 
 function LogIn() {
     const navigate = useNavigate(); 
@@ -32,7 +33,7 @@ function LogIn() {
             credentials:'include',
             body : JSON.stringify(userInput)
         }
-        fetch('http://localhost:3000/api/auth/register',option)
+        fetch(`${SERVER_HOST}/api/auth/register`,option)
         .then(res => res.json()).then(data => {
                 if(data.success){
                     setResponse(data.message);

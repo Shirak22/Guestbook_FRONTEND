@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router";
-import { signGuestbook, updatePost } from "../actions/guestbookactions";
+import { SERVER_HOST } from "../config";
 
 
 function InputForm({isNewEntry, setMission}) {
@@ -50,7 +50,7 @@ function InputForm({isNewEntry, setMission}) {
                 body : JSON.stringify(userInput)
             }
            
-            fetch('http://localhost:3000/api/sign',option)
+            fetch(`${SERVER_HOST}/api/sign`,option)
             .then(res => res.json())
             .then(data => {
                 if(data.success){
@@ -76,7 +76,7 @@ function InputForm({isNewEntry, setMission}) {
                 credentials:'include',
                 body : JSON.stringify(comment)
             }
-            fetch('http://localhost:3000/api/update/' + currentPost.id,option).then(res => res.json())
+            fetch(`${SERVER_HOST}/api/update/` + currentPost.id,option).then(res => res.json())
             .then(data => {
                 if(data.success){
                     setResponse(data.message);

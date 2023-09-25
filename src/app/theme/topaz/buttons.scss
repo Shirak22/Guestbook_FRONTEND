@@ -8,10 +8,19 @@ button{
     transition: .3s;
     &:hover {
         scale: 1.1;
-        cursor: pointer;
+        cursor:pointer;
         background-color: $primary_color;
         transition: .3s;
     }
+}
+button:disabled {
+    background-color: $primary_color;
+    color: $card_body_text_05;
+     &:hover {
+        scale: none;
+        cursor:default;
+
+     }   
 }
 .Sign__button{
     transition: 1s ;

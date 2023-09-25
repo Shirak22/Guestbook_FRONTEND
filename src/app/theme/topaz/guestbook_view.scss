@@ -35,6 +35,7 @@
             }
             .post_card__postTime{
                 font-size:10px;
+                font-weight: 400;
                 position: absolute;
                 right: 0;
                 top: 0;
@@ -43,7 +44,7 @@
             }
             .post_card__header-region{
                 font-size: $small;
-                font-weight: 100;
+                font-weight: 200;
                 margin: 0;
                 margin-left: auto;
                 align-self: flex-end;
@@ -61,10 +62,11 @@
 
         .post_card-content{
             padding: $small;
+            font-weight: 100;
             p{
                 margin: 0;
                 font-size: $small;
-                color: $card_body_text_07;
+                color:$card_body_text_07;
             }
         }
 

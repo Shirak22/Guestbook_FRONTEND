@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loggedIn } from "../actions/guestbookactions";
 import { useNavigate } from "react-router";
+import { SERVER_HOST } from "../config";
 
 function Logout() {
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function Logout() {
             credentials:'include',
             body:''
           }; 
-        fetch('http://localhost:3000/api/auth/logout',option)
+        fetch(`${SERVER_HOST}/api/auth/logout`,option)
         .then(res => res.json()).then(data => {
             if(data.success){
                 dispatch(loggedIn(null));

@@ -11,8 +11,7 @@ import Header from './app/Components/Header'
 import LogIn from './app/Pages/LogIn'
 import Logout from './app/Pages/Logout'
 import Register from './app/Pages/Register'
-import { fetchGet } from './app/utils/fetch_functions'
-
+import { SERVER_HOST } from './app/config'
 
 
 function App() {
@@ -24,7 +23,7 @@ function App() {
     const option = {
       method:'GET',
     }; 
-    fetch('http://localhost:3000/api',option)
+    fetch(`${SERVER_HOST}/api`,option)
     .then(res => res.json())
     .then(data => setData(data)); 
   },[]); 
