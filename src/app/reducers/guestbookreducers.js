@@ -67,6 +67,11 @@ const guestbookReducer = (state = guestbookstore, action) => {
                 last_entries: [...action.payload],
             }
 
+            case "UPDATE_VIEWS_COUNTER":
+                return {
+                    ...state,
+                    total_views: action.payload,
+                }
         default:
             return state;
 

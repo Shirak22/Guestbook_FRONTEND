@@ -1,4 +1,4 @@
-export const SERVER_HOST = 'http://192.168.1.250:3000'; 
+export const SERVER_HOST = 'http://192.168.1.72:3000'; 
 
 export const SITE_INFO = {
     site_title: 'Guestbook',

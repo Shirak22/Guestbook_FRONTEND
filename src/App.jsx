@@ -5,7 +5,7 @@ import NotFound from './app/Pages/NotFound'
 import Home from './app/Pages/Home' 
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { fillStore, loggedIn } from './app/actions/guestbookactions'
+import { fillStore, loggedIn, updateViewsCounter } from './app/actions/guestbookactions'
 import EditPost from './app/Pages/EditPost'
 import Header from './app/Components/Header'
 import LogIn from './app/Pages/LogIn'
@@ -34,6 +34,23 @@ function App() {
     }
   },[data]); 
 
+  //make session request when new session starts. by saving the last count in session storage
+  useEffect(()=> {
+    if(!sessionStorage.getItem('session')){
+        const option = {
+            method: 'GET',
+        };
+        fetch(`${SERVER_HOST}/api/session`, option)
+            .then(res => res.json())
+            .then(data => {
+                sessionStorage.setItem('session',data.views_counts);
+                dispatch(updateViewsCounter(data.views_counts));
+            });
+    }else {
+      dispatch(updateViewsCounter(parseInt(sessionStorage.getItem('session'))));
+    }
+
+},[]);
   return (
     <BrowserRouter>
       <main>

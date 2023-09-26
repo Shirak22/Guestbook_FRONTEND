@@ -37,6 +37,11 @@ export const fillStore = (posts) => ({
     payload:posts
 })
 
+export const updateViewsCounter = (viewsCount) => ({
+    type:"UPDATE_VIEWS_COUNTER",
+    payload:viewsCount
+})
+
 export const fillLastEntries = (entriesCount) => ({
     type: "FILL_LAST_ENTRIES",                          
     payload: entriesCount

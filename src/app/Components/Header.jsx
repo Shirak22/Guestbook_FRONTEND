@@ -3,7 +3,7 @@ import {  useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import {  SERVER_HOST, SITE_INFO } from '../config';
 import { useEffect } from 'react';
-import { fillLastEntries, totalEntries } from '../actions/guestbookactions';
+import { fillLastEntries, totalEntries, updateViewsCounter } from '../actions/guestbookactions';
 
 
 
@@ -12,6 +12,7 @@ function Header() {
     const last_entries = useSelector(state => state.postReducer.last_entries );
     const totalEntries_value = useSelector(state => state.postReducer.total_entries );
     const totalPages_value = useSelector(state => state.postReducer.total_pages );
+    const views = useSelector(state => state.postReducer.total_views );
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -45,6 +46,7 @@ function Header() {
         navigate('/');
     },[]);
 
+
     return (
        
         
@@ -56,7 +58,7 @@ function Header() {
             <section className='nav_guestbook__info '>
                 <p className='InfoBadge'><span>{totalEntries_value}</span> Entries </p>
                 <p className='InfoBadge'><span>{totalPages_value}</span>Pages</p>
-                <p className='InfoBadge '><span>{totalPages_value}</span>Views</p>
+                <p className='InfoBadge '><span>{views}</span>Views</p>
                 <div style={currentUser === null ? {backgroundColor:'#BC2525'} : {backgroundColor: '#25BCB6'}} className='login_indicator'></div>
             </section>
             <section className='nav_lastPosts_scrolling'>
