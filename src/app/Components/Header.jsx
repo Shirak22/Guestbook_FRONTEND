@@ -56,6 +56,7 @@ function Header() {
             <section className='nav_guestbook__info '>
                 <p className='InfoBadge'><span>{totalEntries_value}</span> Entries </p>
                 <p className='InfoBadge'><span>{totalPages_value}</span>Pages</p>
+                <p className='InfoBadge '><span>{totalPages_value}</span>Views</p>
                 <div style={currentUser === null ? {backgroundColor:'#BC2525'} : {backgroundColor: '#25BCB6'}} className='login_indicator'></div>
             </section>
             <section className='nav_lastPosts_scrolling'>

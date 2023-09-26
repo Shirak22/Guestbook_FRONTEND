@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import { loggedIn } from "../actions/guestbookactions";
 import { SERVER_HOST } from "../config";
 
@@ -86,7 +87,7 @@ function LogIn() {
                                 <input required id="password" type="password" onChange={(e) => setPassword(e.target.value)} />
                             </section>
                             <button onClick={handleLogin}>Login</button>
-
+                            <div className="auth_info_Link"><p >No Guestbook account </p><Link to="/register"><p> Register</p></Link></div> 
                         </form>
                     </>)
 

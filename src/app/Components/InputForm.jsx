@@ -107,7 +107,6 @@ function InputForm({isNewEntry, setMission}) {
                 <button onClick={handleClick}>{isNewEntry ? 'Submit' : 'Apply changes'}</button>
                 <button onClick={handleCancel}>Cancel</button>
                 <p className="register_response">{response}</p>
-            
             </form>
 
         </>

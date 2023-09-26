@@ -127,3 +127,23 @@
     max-width: 300px;
 
 }
+.auth_info_Link{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    p{
+        font-size: $small;
+        color: $card_body_text_07;
+        margin: 0;
+
+    }
+    a p{
+        margin: 0 .3rem;
+        color: $card_header_text;
+    }
+    a:hover{
+        text-decoration: overline;
+        color: $card_header_text;
+    }
+ 
+}
