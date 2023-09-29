@@ -22,7 +22,7 @@ function SignGuestBook() {
           }; 
         fetch(`${SERVER_HOST}/api/auth/checkuser`,option)
         .then(res => res.json()).then(data => {
-            if(data.success){
+            if(data.success&& localStorage.getItem('user')){
                 dispatch(loggedIn(data.user));
 
             }else {
@@ -37,7 +37,7 @@ function SignGuestBook() {
     return (
         <main>
             {
-                currentUser && <>
+                currentUser &&  <>
                     <p className="newEditEntry_title">New Entry</p>
                     <InputForm setMission={setSignSuccess} isNewEntry={true} />
                     {signSuccess ? <p className="warning__success"> added successfuly! </p> : ''}

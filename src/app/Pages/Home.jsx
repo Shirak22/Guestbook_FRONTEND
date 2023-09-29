@@ -11,7 +11,7 @@ function Home() {
     const [page,setPage] = useState(0); // the current page 
     const [pageCount,setPageCount] = useState(0); //the number of pages 
     const entriesPerPage = GUESTBOOK_SETTINGS.numberOfEntriesPerPage; //the number of the entries in a page you can change it in the config file. 
-    const numbersPagesToRender = Array.from({length:pageCount},(_,index)=> (index + 1) + 1); //array of the numbers to be renderd as buttens point to specific page . 
+    const numbersPagesToRender = Array.from({length:20},(_,index)=> (index + 1) + 1); //array of the numbers to be renderd as buttens point to specific page . 
 
 
     const dispatch = useDispatch();
@@ -77,14 +77,14 @@ function Home() {
 
 
             </section>
-            <footer className="pagination">
+          { (page > 0) ? (<footer className="pagination">
                 <button disabled={page === 0} onClick={previousPage}>previous</button>
                 <div className="pagination_page_number">{numbersPagesToRender && numbersPagesToRender.map((number,index) => {
                     return <button key={index} className={page === index ? 'active': ''} onClick={handlePageNumber}>{number - 1}</button>
                 })}</div>
                 <button disabled={page === pageCount - 1} onClick={nextPage}>next</button>
-            </footer>
-
+            </footer>) : ''
+            }
         </>
 
     );

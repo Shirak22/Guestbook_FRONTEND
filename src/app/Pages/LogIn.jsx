@@ -29,7 +29,10 @@ function LogIn() {
             if(data.success){
                 setIsLogged(true);
                 dispatch(loggedIn(data.user));
-               navigate('/');
+                if(localStorage.getItem('user') === null ){
+                    localStorage.setItem('user',encodeURIComponent(JSON.stringify(data.user))); 
+                }
+                navigate('/');
             }else {
                 setIsLogged(false);
             }
@@ -54,6 +57,7 @@ function LogIn() {
         .then(res => res.json()).then(data => {
                 if(data.success){
                     setIsLogged(true); 
+                    localStorage.setItem('user',encodeURIComponent(JSON.stringify(data.message))); 
                     dispatch(loggedIn(data.message));
                     setResponse(data.message);
                     navigate('/'); 

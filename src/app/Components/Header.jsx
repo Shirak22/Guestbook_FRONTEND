@@ -2,7 +2,7 @@
 import {  useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import {  SERVER_HOST, SITE_INFO } from '../config';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fillLastEntries, totalEntries, updateViewsCounter } from '../actions/guestbookactions';
 
 
@@ -13,10 +13,10 @@ function Header() {
     const totalEntries_value = useSelector(state => state.postReducer.total_entries );
     const totalPages_value = useSelector(state => state.postReducer.total_pages );
     const views = useSelector(state => state.postReducer.total_views );
-
+    const [localStorageUser,setLocalStorageUser] = useState({}); 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    
 
 
 
@@ -44,22 +44,24 @@ function Header() {
     useEffect(()=> {
         fetchData();
         navigate('/');
+        
     },[]);
-
-
+    useEffect(()=> {
+        setLocalStorageUser(JSON.parse(decodeURIComponent(localStorage.getItem('user'))));
+    },[currentUser]);
+    
     return (
        
-        
             <>  
             <nav>
                <Link to='/'><h1 className='Logo'>{SITE_INFO.site_title}</h1></Link> 
-                <p className='nav__login'>{currentUser === null ? (<><Link to="/register" >Register </Link> <Link to="/login" >Login </Link> </>)  : <Link to="/logout" >{currentUser.username + (' (Logout)')}{currentUser.role === 'admin' ? <span className='login_badge'>Admin</span> : ''}</Link>}</p>
+                <p className='nav__login'>{localStorageUser === null ? (<><Link to="/register" >Register </Link> <Link to="/login" >Login </Link> </>)  : <Link to="/logout" >{localStorageUser.username + (' (Logout)')}{localStorageUser?.role === 'admin' ? <span className='login_badge'>Admin</span> : ''}</Link>}</p>
             </nav>
             <section className='nav_guestbook__info '>
                 <p className='InfoBadge'><span>{totalEntries_value}</span> Entries </p>
                 <p className='InfoBadge'><span>{totalPages_value}</span>Pages</p>
                 <p className='InfoBadge '><span>{views}</span>Views</p>
-                <div style={currentUser === null ? {backgroundColor:'#BC2525'} : {backgroundColor: '#25BCB6'}} className='login_indicator'></div>
+                <div style={localStorageUser === null ? {backgroundColor:'#BC2525'} : {backgroundColor: '#25BCB6'}} className='login_indicator'></div>
             </section>
             <section className='nav_lastPosts_scrolling'>
                 <p className=' lastPosts__title '>last<span> 5 </span>entries</p>
