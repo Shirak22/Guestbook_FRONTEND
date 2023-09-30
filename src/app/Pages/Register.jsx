@@ -38,7 +38,7 @@ function LogIn() {
                 if(data.success){
                     setResponse(data.message);
                     dispatch(loggedIn(data.user));
-                    navigate('/'); 
+                    navigate('/login'); 
                 }else {
                     setResponse(data.message);
                 }

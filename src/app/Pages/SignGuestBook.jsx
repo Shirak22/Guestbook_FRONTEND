@@ -22,8 +22,8 @@ function SignGuestBook() {
           }; 
         fetch(`${SERVER_HOST}/api/auth/checkuser`,option)
         .then(res => res.json()).then(data => {
-            if(data.success&& localStorage.getItem('user')){
-                dispatch(loggedIn(data.user));
+            if(data.success && localStorage.getItem('user')){
+                dispatch(loggedIn(JSON.parse(decodeURIComponent(localStorage.getItem('user')))));
 
             }else {
                 dispatch(loggedIn(null));

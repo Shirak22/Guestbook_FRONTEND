@@ -43,9 +43,11 @@ function Header() {
 
     useEffect(()=> {
         fetchData();
+        setLocalStorageUser(JSON.parse(decodeURIComponent(localStorage.getItem('user'))));
         navigate('/');
         
     },[]);
+    
     useEffect(()=> {
         setLocalStorageUser(JSON.parse(decodeURIComponent(localStorage.getItem('user'))));
     },[currentUser]);

@@ -34,6 +34,12 @@ function App() {
     }
   },[data]); 
 
+  useEffect(()=> {
+    let LocalStorageUser = JSON.parse(decodeURIComponent(localStorage.getItem('user'))); 
+    dispatch(loggedIn(LocalStorageUser)); 
+     
+},[]);
+
   //make session request when new session starts. by saving the last count in session storage
   useEffect(()=> {
     if(!sessionStorage.getItem('session')){
