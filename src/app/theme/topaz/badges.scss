@@ -9,11 +9,12 @@
 }
 .InfoBadge{
     font-size: $small;
-    margin: 0 $medium;
+    margin: $small $medium;
     color: $card_header_text;
     background: $secondry_color;
     padding:.2rem  .5rem;
     border-radius: 5px;
+
     span {
         margin-right:.5rem;
         background-color: $primary_color;
